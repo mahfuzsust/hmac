@@ -19,21 +19,51 @@ var generateHash = function(msg, key) {
 }
 
 app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/../doc'))
 app.use(bodyParser.json());                        
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(request, response) {
   response.send('Hello World!')
 });
+
+/**
+ * @api {get} /keys Request For Keys
+ * @apiName Get Keys
+ * @apiGroup Keys
+ * @apiVersion 1.0.0
+ * @apiSuccess {Array} result key with id.
+ */
 app.get('/keys', function(request, response) {
   response.send(keys)
 });
+/**
+ * @api {post} /generate Request Generating SHA512 Hash
+ * @apiName Generate Signature
+ * @apiGroup Keys
+ *
+ * @apiParam {String} message Message.
+ * @apiParam {String} key Key.
+ * @apiVersion 1.0.0
+ * @apiSuccess {String} signature Get Signature for the message.
+ */
 app.post('/generate', function(request, response){
   var msg = request.body.message;
   var key = request.body.key;
   response.send(generateHash(msg, key));
 });
+
+/**
+ * @api {post} /validate Validating message hash
+ * @apiName Validate Signature
+ * @apiGroup Keys
+ * @apiHeader {String} Authorization Signature.
+ * @apiParam {String} message Message.
+ * @apiParam {String} key Key.
+ * @apiVersion 1.0.0
+ *
+ * @apiSuccess {String} Valid Verified/Invalid.
+ */
 app.post('/validate', function(request, response){
   var msg = request.body.message;
   var key = request.body.key;

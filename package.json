@@ -1,31 +1,29 @@
 {
-  "name": "node-js-sample",
-  "version": "0.2.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "hamc-tutorial",
+  "version": "1.0.0",
+  "description": "HMAC key exchange tutorial",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
+    "apidoc": "^0.17.6",
+    "body-parser": "*",
     "express": "^4.13.3",
-    "randomstring": "^1.1.5",
-    "body-parser": "*"
+    "randomstring": "^1.1.5"
   },
   "engines": {
     "node": "4.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-sample"
+    "url": "https://github.com/mahfuzsust/hmac"
   },
   "keywords": [
     "node",
-    "heroku",
-    "express"
+    "hmac",
+    "key"
   ],
-  "author": "Mark Pundsack",
-  "contributors": [
-    "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
-  ],
+  "author": "Mahfuzur Rahman",
   "license": "MIT"
 }
