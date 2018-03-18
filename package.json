@@ -1,5 +1,5 @@
 {
-  "name": "hamc-tutorial",
+  "name": "HMAC-Tutorial",
   "version": "1.0.0",
   "description": "HMAC key exchange tutorial",
   "main": "index.js",
